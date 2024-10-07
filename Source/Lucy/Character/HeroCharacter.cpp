@@ -72,6 +72,8 @@ void AHeroCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 
 	LucyInputComponent->BindNativeInputAction(InputConfigDataAsset, LucyGameplayTags::InputTag_Move, ETriggerEvent::Triggered, this, &ThisClass::Input_Move);
 	LucyInputComponent->BindNativeInputAction(InputConfigDataAsset, LucyGameplayTags::InputTag_Look, ETriggerEvent::Triggered, this, &ThisClass::Input_Look);
+	
+	LucyInputComponent->BindAbilityInputAction(InputConfigDataAsset, this, &ThisClass::Input_AbilityInputPressed, &ThisClass::Input_AbilityInputReleased);
 }
 
 void AHeroCharacter::BeginPlay()
@@ -114,4 +116,16 @@ void AHeroCharacter::Input_Look(const FInputActionValue& InputActionValue)
 	{
 		AddControllerPitchInput(LookAxisVector.Y);
 	}
+}
+
+void AHeroCharacter::Input_AbilityInputPressed(FGameplayTag InInputTag)
+{
+	Debug::Print(TEXT("8"));
+	WarriorAbilitySystemComponent->OnAbliltyInputPressed(InInputTag);
+}
+
+void AHeroCharacter::Input_AbilityInputReleased(FGameplayTag InInputTag)
+{
+	Debug::Print(TEXT("9"));
+	WarriorAbilitySystemComponent->OnAbliltyInputReleased(InInputTag);
 }

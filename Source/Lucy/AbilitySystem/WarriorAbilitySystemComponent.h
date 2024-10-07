@@ -13,5 +13,8 @@ UCLASS()
 class LUCY_API UWarriorAbilitySystemComponent : public UAbilitySystemComponent
 {
 	GENERATED_BODY()
-	
+
+public:
+	void OnAbliltyInputPressed(const FGameplayTag& InInputTag);
+	void OnAbliltyInputReleased(const FGameplayTag& InInputTag);
 };
