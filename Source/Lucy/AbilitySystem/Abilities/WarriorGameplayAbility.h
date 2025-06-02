@@ -34,8 +34,10 @@ protected:
 	EWarriorAbilityActivationPolicy AbilityActivationPolicy = EWarriorAbilityActivationPolicy::OnTriggered;
 
 	UFUNCTION(BlueprintPure, Category = "Warrior|Ability")
-	UPawnCombatComponent* GetPawnCombatComponentFromActiorInfo() const;
+	UPawnCombatComponent* GetPawnCombatComponentFromActorInfo() const;
 
 	UFUNCTION(BlueprintPure, Category = "Warrior|Ability")
 	UWarriorAbilitySystemComponent* GetWarriorAbilitySystemComponentFromActiorInfo() const;
+
+
 };

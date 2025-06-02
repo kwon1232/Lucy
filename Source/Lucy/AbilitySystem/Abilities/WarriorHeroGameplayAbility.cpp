@@ -28,3 +28,4 @@ UHeroCombatComponent* UWarriorHeroGameplayAbility::GetHeroCombatComponentFromAct
 {
 	return GetHeroCharacterFromActorInfo()->GetHeroCombatComponent();
 }
+

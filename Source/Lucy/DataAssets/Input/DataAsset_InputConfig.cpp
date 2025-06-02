@@ -6,7 +6,7 @@
 #include "InputAction.h"
 
 
-TObjectPtr<UInputAction> UDataAsset_InputConfig::FindNativeInputActionByTag(const FGameplayTag& InInputTag) const
+UInputAction* UDataAsset_InputConfig::FindNativeInputActionByTag(const FGameplayTag& InInputTag) const
 {
 	for (const FLucyInputActionConfig& InputActionConfig : NativeInputActions)
 	{

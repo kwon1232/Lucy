@@ -18,10 +18,9 @@ struct  FLucyInputActionConfig
 public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta = (Categories = "InputTag"))
 	FGameplayTag InputTag;
-	
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	TObjectPtr<UInputAction> InputAction;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	UInputAction* InputAction;
 	bool IsValid() const
 	{
 		return InputTag.IsValid() && InputAction;
@@ -36,16 +35,16 @@ UCLASS()
 class LUCY_API UDataAsset_InputConfig : public UDataAsset
 {
 	GENERATED_BODY()
-	
+
 public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	TObjectPtr<UInputMappingContext> DefaultMappingContext;
+	UInputMappingContext* DefaultMappingContext;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta = (TitileProperty = "InputAction"))
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta = (TitleProperty = "InputTag"))
 	TArray<FLucyInputActionConfig> NativeInputActions;
 
-	TObjectPtr<UInputAction> FindNativeInputActionByTag(const FGameplayTag& InInputTag) const;
+	UInputAction* FindNativeInputActionByTag(const FGameplayTag& InInputTag) const;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta = (TitileProperty = "InputAction"))
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta = (TitleProperty = "InputTag"))
 	TArray<FLucyInputActionConfig> AbilityInputActions;
 };

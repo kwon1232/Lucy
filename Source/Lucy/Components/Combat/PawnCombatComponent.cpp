@@ -5,6 +5,8 @@
 #include "Lucy/Items/Weapons/WarriorWeaponBase.h"
 
 #include "Lucy/LucyGameplayTags.h"
+#include "Lucy/LucyDebugHelper.h"
+
 
 
 void UPawnCombatComponent::RegisterSpawnedWeapon(FGameplayTag InWeaponTagToRegister, AWarriorWeaponBase* InWeaponToRegister, bool bRegisterAsEquippedWeapon)
@@ -19,8 +21,8 @@ void UPawnCombatComponent::RegisterSpawnedWeapon(FGameplayTag InWeaponTagToRegis
 		CurrentEquippedWeaponTag = InWeaponTagToRegister;
 	}
 
-	const FString WeaponString = FString::Printf(TEXT("A weapon named : %s has been registered using the tag %s"), *InWeaponToRegister->GetName(), *InWeaponTagToRegister.ToString());
-
+	const FString WeaponString = FString::Printf(TEXT("A weapon named: %s has been registered using the tag %s"), *InWeaponToRegister->GetName(), *InWeaponTagToRegister.ToString());
+	Debug::Print(WeaponString);
 }
 
 AWarriorWeaponBase* UPawnCombatComponent::GetCharacterCarriedWeaponByTag(FGameplayTag InWeaponTagToGet) const
